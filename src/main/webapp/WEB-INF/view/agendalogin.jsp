@@ -4,9 +4,26 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Formulário de Login de Usuários</title>
 </head>
 <body>
-<h1>Usuário registrado com sucesso!</h1>
+
+<h1>Login de Usuários</h1>
+<form action="<%=request.getContextPath() %>/login" method=post>
+<table style="width=80%">
+	<tr>
+		<td>Login</td>
+		<td><input type="text" name="login"/></td>
+	</tr>
+	
+	<tr>
+		<td>Senha</td>
+		<td><input type="password" name="senha"/></td>
+	</tr>
+</table>
+<input type="submit" value="Enviar"/>
+
+</form>
+
 </body>
 </html>

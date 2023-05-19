@@ -1,11 +1,16 @@
 package controller;
 
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.RequestDispatcher;
+import jakarta.servlet.ServletContext;
+import model.Usuarios;
+import dao.UsuariosDAO;
 
 /**
  * Servlet implementation class AgendaLoginServlet
@@ -13,6 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/login")
 public class AgendaLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	UsuariosDAO usuarioDAO = new UsuariosDAO();
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,7 +33,8 @@ public class AgendaLoginServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
+		dispatcher.forward(request, response);	
 	}
 
 	/**
@@ -35,7 +42,27 @@ public class AgendaLoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		String login = request.getParameter("login");
+		String senha = request.getParameter("senha");
+		
+		Usuarios usuario = new Usuarios();
+		usuario.setLogin(login);
+		usuario.setSenha(senha);
+		
+		try {
+ 			
+			if(usuarioDAO.loginUsuario(usuario) != 0) {
+				 ServletContext servletContext = getServletContext();
+			        servletContext.setAttribute("login", login);
+			        servletContext.setAttribute("senha", senha);
+
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
+					dispatcher.forward(request, response);
+			}
+		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+       
 	}
 
 }
