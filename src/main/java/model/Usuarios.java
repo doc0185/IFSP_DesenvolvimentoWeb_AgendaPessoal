@@ -3,6 +3,7 @@ package model;
 public class Usuarios {
 	private int id;
 	private String login;
+	private String senha;
 	private String nome;
 	private String email;
 	
@@ -29,6 +30,12 @@ public class Usuarios {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 	
 	
