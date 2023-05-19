@@ -18,7 +18,7 @@
 	
 	<tr>
 		<td>Senha: </td>
-		<td><input type="text" name="senha"/></td>
+		<td><input type="password" name="senha"/></td>
 	</tr>
 	
 	<tr>
@@ -28,7 +28,7 @@
 	
 	<tr>
 		<td>Email: </td>
-		<td><input type="password" name="email"/></td>
+		<td><input type="text" name="email"/></td>
 	</tr>
 
 </table>

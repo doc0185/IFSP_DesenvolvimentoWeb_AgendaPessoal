@@ -18,9 +18,9 @@ public class UsuariosDAO {
 	String password = "";
 	
 	public int registerUsuario (Usuarios usuario) throws ClassNotFoundException {
-		String INSERT_USERS_SQL = "INSERT INTO employee" + 
+		String INSERT_USERS_SQL = "INSERT INTO usuarios" + 
 				"(login, senha, nome, email) VALUES" +
-				"(?, ?, ?, ?;";
+				"(?, ?, ?, ?);";
 		int result = 0;
 		Class.forName("com.mysql.jdbc.Driver");
 		
