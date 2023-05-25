@@ -67,8 +67,8 @@ public class UsuariosDAO {
 				
 				ResultSet rs = preparedStatement.executeQuery();
 				while (rs.next()) {
-					System.out.println(rs.getString("id"));		
-					return 1;
+					System.out.println(rs.getInt("id"));		
+					return rs.getInt("id");
 				}
 		} catch(SQLException e) {
 			e.printStackTrace();
