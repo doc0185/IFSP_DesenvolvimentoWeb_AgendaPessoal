@@ -4,10 +4,12 @@ import java.sql.Date;
 
 public class Tarefas {
 	private int id;
+	private int user_id;
 	private String titulo;
 	private String descricao;
 	private Date data_inicio;
 	private Date data_conclusao;
+	private String status;
 	
 	public int getId() {
 		return id;
@@ -38,6 +40,18 @@ public class Tarefas {
 	}
 	public void setData_conclusao(Date data_conclusao) {
 		this.data_conclusao = data_conclusao;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	
 	

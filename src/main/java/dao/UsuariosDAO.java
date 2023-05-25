@@ -37,6 +37,11 @@ public class UsuariosDAO {
 				System.out.println(preparedStatement);
 				
 				result = preparedStatement.executeUpdate();
+				ResultSet rs = preparedStatement.getGeneratedKeys();
+				if(rs.next()) {
+					usuario.setId(rs.getInt(1));
+					System.out.println(usuario.getId());
+				}
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}

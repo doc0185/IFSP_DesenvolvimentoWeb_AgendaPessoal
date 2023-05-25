@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Página Principal</title>
 </head>
 <body>
 <h1>Usuário Logado!</h1>
+<a href="/agendaPessoal/cadastroTarefa">Cadastrar nova Tarefa!</a>
 </body>
 </html>
