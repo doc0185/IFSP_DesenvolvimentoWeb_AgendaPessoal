@@ -89,5 +89,30 @@ public class TarefasDAO {
 		return listTarefas;
 	}
 	
+	public void deletarTarefa (int id) throws ClassNotFoundException{
+		
+		String DELETE_TAREFAS_SQL = "DELETE FROM tarefas "
+				+ "WHERE id = ?;";
+		Class.forName("com.mysql.jdbc.Driver");
+		ArrayList<Tarefas> listTarefas = new ArrayList<>();
+	
+		try (Connection connection = DriverManager.
+				getConnection(url, username, password);
+				
+				PreparedStatement preparedStatement = connection.prepareStatement(DELETE_TAREFAS_SQL)){;
+				
+				preparedStatement.setInt(1, id);
+				
+				
+				System.out.println(preparedStatement);
+				
+				preparedStatement.executeUpdate();
+				
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 
 }
