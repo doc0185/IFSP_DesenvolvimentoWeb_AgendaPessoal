@@ -94,7 +94,6 @@ public class TarefasDAO {
 		String DELETE_TAREFAS_SQL = "DELETE FROM tarefas "
 				+ "WHERE id = ?;";
 		Class.forName("com.mysql.jdbc.Driver");
-		ArrayList<Tarefas> listTarefas = new ArrayList<>();
 	
 		try (Connection connection = DriverManager.
 				getConnection(url, username, password);
@@ -112,6 +111,39 @@ public class TarefasDAO {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public Tarefas visualEdicaoTarefa (int id) throws ClassNotFoundException{
+		Tarefas tarefa = new Tarefas();
+		
+		String LIST_TAREFAS_SQL = "SELECT titulo, descricao, data_criacao, data_conclusao, stat from tarefas "
+				+ "WHERE id = ?;";
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		try (Connection connection = DriverManager.
+				getConnection(url, username, password);
+				
+				PreparedStatement preparedStatement = connection.prepareStatement(LIST_TAREFAS_SQL)){;
+				
+				preparedStatement.setInt(1, id);
+				
+				
+				System.out.println(preparedStatement);
+				
+				ResultSet rs = preparedStatement.executeQuery();
+				while (rs.next()) {
+					
+					tarefa.setTitulo(rs.getString("titulo"));
+					tarefa.setDescricao(rs.getString("descricao"));
+					tarefa.setData_inicio(rs.getDate("data_criacao"));
+					tarefa.setData_conclusao(rs.getDate("data_conclusao"));
+					tarefa.setStatus(rs.getString("stat"));
+				}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return tarefa;
 	}
 	
 
