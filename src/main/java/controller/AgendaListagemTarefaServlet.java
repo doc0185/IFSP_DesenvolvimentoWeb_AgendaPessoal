@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import dao.TarefasDAO;
 import dao.UsuariosDAO;
@@ -53,23 +52,7 @@ public class AgendaListagemTarefaServlet extends HttpServlet {
 			ArrayList<Tarefas> tarefas = new ArrayList<>();
 			tarefas = tarefaDAO.listTarefa(usuario);
 			request.setAttribute("lista", tarefas);
-			/*
-			if (tarefas != null) {
-				PrintWriter writer = response.getWriter();
-		        String htmlRespone = "<html>";
-		        
-				for (int i=0; i<tarefas.size(); i++) {
-			        htmlRespone += "<h2> Tìtulo: " + tarefas.get(i).getTitulo() + "<br/>";    
-			        htmlRespone += "Descrição: " + tarefas.get(i).getDescricao() + "<br/>";
-			        htmlRespone += "Data Início: " + tarefas.get(i).getData_inicio() + "<br/>";
-			        htmlRespone += "Data Conclusão : " + tarefas.get(i).getData_conclusao() + "<br/>";
-			        htmlRespone += "Status : " + tarefas.get(i).getStatus() + "</h2>";
-			        
-				}
-				htmlRespone += "</html>";
-				writer.println(htmlRespone); 
-			}*/
-			
+		
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
 			dispatcher.forward(request, response);
 	

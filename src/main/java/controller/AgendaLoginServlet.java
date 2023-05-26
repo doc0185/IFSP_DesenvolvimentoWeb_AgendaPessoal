@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,7 +10,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
+import model.Tarefas;
 import model.Usuarios;
+import dao.TarefasDAO;
 import dao.UsuariosDAO;
 
 /**
@@ -19,6 +22,8 @@ import dao.UsuariosDAO;
 public class AgendaLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UsuariosDAO usuarioDAO = new UsuariosDAO();
+	TarefasDAO tarefaDAO = new TarefasDAO();
+
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -52,6 +57,9 @@ public class AgendaLoginServlet extends HttpServlet {
 		try {
  			
 			if(usuarioDAO.loginUsuario(usuario) != 0) {
+				ArrayList<Tarefas> tarefas = new ArrayList<>();
+				tarefas = tarefaDAO.listTarefa(usuario);
+				request.setAttribute("lista", tarefas);
 				 ServletContext servletContext = getServletContext();
 			        servletContext.setAttribute("login", login);
 			        servletContext.setAttribute("senha", senha);

@@ -13,6 +13,7 @@ import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
 import dao.TarefasDAO;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.text.DateFormat;  
 
 
@@ -81,9 +82,13 @@ public class AgendaCadastroTarefaServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 			tarefaDAO.registerTarefa(tarefa, usuario);
+			ArrayList<Tarefas> tarefas = new ArrayList<>();
+			tarefas = tarefaDAO.listTarefa(usuario);
+			request.setAttribute("lista", tarefas);
 			
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
 			dispatcher.forward(request, response);
+			
 			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
