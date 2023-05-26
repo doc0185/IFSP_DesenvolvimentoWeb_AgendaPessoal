@@ -67,6 +67,7 @@ public class UsuariosDAO {
 				
 				ResultSet rs = preparedStatement.executeQuery();
 				while (rs.next()) {
+					usuario.setId(rs.getInt("id"));
 					System.out.println(rs.getInt("id"));		
 					return rs.getInt("id");
 				}

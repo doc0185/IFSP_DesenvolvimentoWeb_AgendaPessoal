@@ -38,6 +38,7 @@ public class TarefasDAO {
 				
 				System.out.println(preparedStatement);
 				
+				tarefa.setUser_id(usuario.getId());
 				result = preparedStatement.executeUpdate();
 				ResultSet rs = preparedStatement.getGeneratedKeys();
 				if(rs.next()) {
