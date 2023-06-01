@@ -146,5 +146,32 @@ public class TarefasDAO {
 		return tarefa;
 	}
 	
+	public int atualizarTarefa (Tarefas tarefa) throws ClassNotFoundException{
+		String UPDATE_TAREFA = "UPDATE tarefas SET titulo = ?, descricao = ?, data_criacao = ?, data_conclusao = ?, stat = ? "
+				+ "WHERE id = ?;";
+		int result = 0;
+		Class.forName("com.mysql.jdbc.Driver");
+		
+		try (Connection connection = DriverManager.
+				getConnection(url, username, password);
+				
+				PreparedStatement preparedStatement = connection.prepareStatement(UPDATE_TAREFA)){;
+				preparedStatement.setString(1, tarefa.getTitulo());
+				preparedStatement.setString(2, tarefa.getDescricao());
+				preparedStatement.setDate(3, tarefa.getData_inicio());
+				preparedStatement.setDate(4, tarefa.getData_conclusao());
+				preparedStatement.setString(5, tarefa.getStatus());
+				preparedStatement.setInt(6, tarefa.getId());
+				
+				System.out.println(preparedStatement);
+				result = preparedStatement.executeUpdate();
+				
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return result;
+	}
 
 }
