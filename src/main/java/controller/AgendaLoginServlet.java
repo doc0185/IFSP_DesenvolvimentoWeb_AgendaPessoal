@@ -57,6 +57,7 @@ public class AgendaLoginServlet extends HttpServlet {
 		try {
  			
 			if(usuarioDAO.loginUsuario(usuario) != 0) {
+				request.getSession().setAttribute("usuario_login", login);
 				ArrayList<Tarefas> tarefas = new ArrayList<>();
 				tarefas = tarefaDAO.listTarefa(usuario);
 				request.setAttribute("lista", tarefas);
@@ -66,6 +67,9 @@ public class AgendaLoginServlet extends HttpServlet {
 
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
 					dispatcher.forward(request, response);
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
+				dispatcher.forward(request, response);
 			}
 		} catch(ClassNotFoundException e) {
 			e.printStackTrace();

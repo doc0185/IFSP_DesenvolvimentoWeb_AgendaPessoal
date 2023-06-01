@@ -37,35 +37,44 @@ public class AgendaDeleteTarefaServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ServletContext servletContext = getServletContext();
-        String login = (String) servletContext.getAttribute("login");
-        String senha = (String) servletContext.getAttribute("senha");
-        
-        Usuarios usuario = new Usuarios();
-		usuario.setLogin(login);
-		usuario.setSenha(senha);
+		String usuario_login = (String) request.getSession().getAttribute("usuario_login");
+		if (usuario_login != null) {
+			ServletContext servletContext = getServletContext();
+	        String login = (String) servletContext.getAttribute("login");
+	        String senha = (String) servletContext.getAttribute("senha");
+	        
+	        Usuarios usuario = new Usuarios();
+			usuario.setLogin(login);
+			usuario.setSenha(senha);
+			
+			int id_tarefa = Integer.parseInt(request.getParameter("id_tarefa"));
 		
-		int id_tarefa = Integer.parseInt(request.getParameter("id_tarefa"));
-		try {
-			tarefaDAO.deletarTarefa(id_tarefa);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		
-		try {
-			usuarioDAO.loginUsuario(usuario);
-			ArrayList<Tarefas> tarefas = new ArrayList<>();
-			tarefas = tarefaDAO.listTarefa(usuario);
-			request.setAttribute("lista", tarefas);
+			try {
+				tarefaDAO.deletarTarefa(id_tarefa);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				usuarioDAO.loginUsuario(usuario);
+				ArrayList<Tarefas> tarefas = new ArrayList<>();
+				tarefas = tarefaDAO.listTarefa(usuario);
+				request.setAttribute("lista", tarefas);
+			
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
+				dispatcher.forward(request, response);
 		
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
 			dispatcher.forward(request, response);
-	
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
+		
 	}
 
 	/**
