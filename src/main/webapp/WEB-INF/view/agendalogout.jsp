@@ -5,10 +5,19 @@
 <head>
 <meta charset="UTF-8">
 <title>Usuario Deslogado</title>
+<style><%@include file="/WEB-INF/view/style4.css"%></style>
+
 </head>
 <body>
+
+<div class="box">
+
 <h1>Usuário deslogado</h1>
-<a href="/agendaPessoal/login">Login Novamente!</a>
+<label>
+<a href="/agendaPessoal/login">Login Novamente?</a>
+</label>
+
+</div>
 
 </body>
 </html>

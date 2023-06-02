@@ -41,7 +41,7 @@
 		</label>
 </form>
 
-	<a href="/agendaPessoal/login" >Já logado? Clique aqui</a>
+	<a href="/agendaPessoal/login" >Já logado?!</a>
 	
 
 	</div>

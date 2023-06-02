@@ -1,0 +1,28 @@
+@charset "UTF-8";
+body{ font:100% normal Andale Mono, monospace; background:#161712;}
+a{
+	color:#6A5ACD;
+    font-size:24px;
+   	margin: 640px;
+}
+
+div.box {
+    margin:0 auto;
+    width:1500px;
+    background:#222222;
+    position:relative;
+    top:50px;
+    border:1px solid #262626;
+}
+
+
+
+h1{
+	color:#ffffff;
+	text-align:center;
+    font-size:50px;
+    text-transform:uppercase;
+    padding:5px 0 5px 5px;
+    border-bottom:1px solid #161712;
+    border-top:1px solid #161712;
+}

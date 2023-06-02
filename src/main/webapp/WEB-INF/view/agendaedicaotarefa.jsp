@@ -6,40 +6,47 @@
 <head>
 <meta charset="UTF-8">
 <title>Edição de Tarefas</title>
-</head>
-<body>
-<h1>Edição de Tarefas</h1>
-<form action="<%=request.getContextPath() %>/edicaoTarefa" method=post>
-<table style="width=80%">
-	<tr>
-		<td>Titulo</td>
-		<td><input type="text" name="titulo" value=<%= request.getAttribute("titulo") %>></td>
-	</tr>
-	
-	<tr>
-		<td>Descricao</td>
-		<td><input type="text" name="descricao" value=<%= request.getAttribute("descricao") %>></td>
-	</tr>
-	
-	<tr>
-		<td>Data Início</td>
-		<td><input type="date" name="data_inicio" value=<%= request.getAttribute("data_inicio") %> min="2023-05-25" max="2023-12-31"></td>
-	</tr>
-	
-	<tr>
-		<td>Data Conclusão</td>
-		<td><input type="date" name="data_conclusao" value=<%= request.getAttribute("data_conclusao") %> min="2023-05-25" max="2023-12-31"></td>
-	</tr>
-	
-	<tr>
-		<td>Status</td>
-		<td><input type="text" name="status" value=<%= request.getAttribute("status") %>></td>
-	</tr>
-	
-	
-</table>
-<input type="submit" value="Enviar"/>
+<style><%@include file="/WEB-INF/view/style3.css"%></style>
 
-</form>
+</head>
+
+<body>
+<div class="box">
+
+	<form action="<%=request.getContextPath() %>/edicaoTarefa" method=post>
+	<h1>Edição de Tarefas</h1>
+	<label>
+			<span>Titulo</span>
+ 			<input type="text" class="input_text" name="titulo" id="titulo" value=<%= request.getAttribute("titulo") %>>
+	</label>
+	
+	<label>
+			<span>Descricao</span>
+ 			<input type="text" class="input_text" name="descricao" id="descricao" value=<%= request.getAttribute("descricao") %>>
+	</label>
+	
+	<label>
+			<span>Data Início</span>
+ 			<input type="date" class="input_text" name="data_inicio" id="data_inicio" value=<%= request.getAttribute("data_inicio") %> min="2023-05-25" max="2023-12-31">
+	</label>
+	
+	<label>
+			<span>Data Conclusao</span>
+ 			<input type="date" class="input_text" name="data_conclusao" id="data_conclusao" value=<%= request.getAttribute("data_conclusao") %> min="2023-05-25" max="2023-12-31">
+	</label>
+	
+	<label>
+			<span>Status</span>
+ 			<input type="text" class="input_text" name="status" id="status" value=<%= request.getAttribute("status") %>>
+	</label>
+	
+	<label>
+			<input type="submit" class="button" value="Enviar" />
+		</label>
+	
+	</form>
+	
+	
+</div>
 </body>
 </html>

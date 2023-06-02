@@ -7,9 +7,47 @@
 <head>
 <meta charset="UTF-8">
 <title>Cadastro de Tarefas</title>
+<style><%@include file="/WEB-INF/view/style3.css"%></style>
 </head>
+
 <body>
-<h1>Cadastro de Tarefas</h1>
+<div class="box">
+
+	<form action="<%=request.getContextPath() %>/cadastroTarefa" method=post>
+	<h1>Cadastro de Tarefas</h1>
+	
+	<label>
+			<span>Titulo</span>
+ 			<input type="text" class="input_text" name="titulo" id="titulo"/>
+	</label>
+	
+	<label>
+			<span>Descricao</span>
+ 			<input type="text" class="input_text" name="descricao" id="descricao"/>
+	</label>
+	
+	<label>
+			<span>Data Início</span>
+ 			<input type="text" class="input_text" name="data_inicio" id="data_inicio" value="2023-05-25" min="2023-05-25" max="2023-12-31"/>
+	</label>
+	
+	
+	<label>
+			<span>Data Conclusão</span>
+ 			<input type="text" class="input_text" name="data_conclusao" id="data_conclusao" value="2023-05-25" min="2023-05-25" max="2023-12-31"/>
+	</label>
+	
+	<label>
+			<span>Status</span>
+ 			<input type="text" class="input_text" name="status" id="status"/>
+	</label>
+	
+	<label>
+			<input type="submit" class="button" value="Enviar" />
+		</label>
+	
+	</form>
+<!-- 
 <form action="<%=request.getContextPath() %>/cadastroTarefa" method=post>
 <table style="width=80%">
 	<tr>
@@ -42,5 +80,7 @@
 <input type="submit" value="Enviar"/>
 
 </form>
+ -->
+</div>
 </body>
 </html>
