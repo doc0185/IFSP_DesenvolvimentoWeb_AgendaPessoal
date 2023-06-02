@@ -46,7 +46,7 @@ public class AgendaRegisterServlet extends HttpServlet {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		String nome = request.getParameter("nome");
-		String email = request.getParameter("senha");
+		String email = request.getParameter("email");
 		
 		Usuarios usuario = new Usuarios();
 		usuario.setLogin(login);

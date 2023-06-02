@@ -7,39 +7,45 @@
 <head>
 <meta charset="UTF-8">
 <title>Formulário de Registro de Usuário</title>
+<style><%@include file="/WEB-INF/view/style.css"%></style>
 </head>
 <body>
 
-<h1>Registro de Usuário</h1>
-<form action="<%=request.getContextPath() %>/register" method=post>
-<table style="width=80%">
-	<tr>
-		<td>Login: </td>
-		<td><input type="text" name="login"/></td>
-	</tr>
-	
-	<tr>
-		<td>Senha: </td>
-		<td><input type="password" name="senha"/></td>
-	</tr>
-	
-	<tr>
-		<td>Nome: </td>
-		<td><input type="text" name="nome"/></td>
-	</tr>
-	
-	<tr>
-		<td>Email: </td>
-		<td><input type="text" name="email"/></td>
-	</tr>
+<div class="box">
+<form action="<%=request.getContextPath() %>/register" method=post id="formulario">
+		<h1>Formulario de Regsitro de Usuario</h1>
 
-</table>
-<input type="submit" value="Enviar"/>
+		<label>
+			<span>Nome</span>
+ 			<input type="text" class="input_text" name="nome" id="name"/>
 
+		</label>
+
+		<label>
+ 			<span>Email</span>
+			<input type="text" class="input_text" name="email" id="email"/>
+		 </label>
+		 
+		 <label>
+ 			<span>Login</span>
+			<input type="text" class="input_text" name="login" id="login"/>
+		</label>
+
+		<label>
+ 			<span>Senha</span>
+			<input type="password" class="input_text" name="senha" id="senha"/>
+		</label>
+
+		<label>
+			<input type="submit" class="button" value="Enviar" />
+		</label>
 </form>
-<br>
 
-<a href="/agendaPessoal/login">Já cadastrado?</a>
+	<a href="/agendaPessoal/login" >Já logado? Clique aqui</a>
+	
+
+	</div>
+
 
 </body>
 </html>

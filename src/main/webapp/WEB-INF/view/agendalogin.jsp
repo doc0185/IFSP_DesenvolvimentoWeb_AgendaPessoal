@@ -7,25 +7,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Formulário de Login de Usuários</title>
+<style><%@include file="/WEB-INF/view/style.css"%></style>
 </head>
 <body>
 
-<h1>Login de Usuários</h1>
-<form action="<%=request.getContextPath() %>/login" method=post>
-<table style="width=80%">
-	<tr>
-		<td>Login</td>
-		<td><input type="text" name="login"/></td>
-	</tr>
+<div class="box">
+	<form action="<%=request.getContextPath() %>/login" method=post>
+	<h1>Formulario de Login</h1>
+
+		<label>
+ 			<span>Login</span>
+			<input type="text" class="input_text" name="login" id="login"/>
+		</label>
+
+		<label>
+ 			<span>Senha</span>
+			<input type="password" class="input_text" name="senha" id="senha"/>
+		</label>
+
+		<label>
+			<input type="submit" class="button" value="Enviar" />
+		</label>
 	
-	<tr>
-		<td>Senha</td>
-		<td><input type="password" name="senha"/></td>
-	</tr>
-</table>
-<input type="submit" value="Enviar"/>
-
-</form>
-
+	</form>
+</div>
 </body>
 </html>

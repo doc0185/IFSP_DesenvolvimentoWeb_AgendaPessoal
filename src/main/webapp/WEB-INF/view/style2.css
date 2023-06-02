@@ -1,0 +1,54 @@
+@charset "UTF-8";
+body{ font:100% normal Andale Mono, monospace; background:#161712;}
+
+table{
+	background:#222222;
+	font-size:24px;
+	color: #ffffff;
+	border: 5px solid #ffffff;
+	margin:0 auto;
+	padding: 15px;
+  	text-align: left;
+	
+}
+
+th, td {
+  padding: 15px;
+  text-align: left;
+}
+
+a{
+	color:#6A5ACD;
+    font-size:24px;
+}
+
+.linkespecial{
+	width:1500px;
+	font-size:36px;
+	text-transform:uppercase;
+    background:#222222;
+    position:relative;
+    top:50px;
+    border:1px solid #262626;
+	
+}
+
+
+div.box {
+    margin:0 auto;
+    width:1500px;
+    background:#222222;
+    position:relative;
+    top:50px;
+    border:1px solid #262626;
+}
+
+div.box h1 {
+    color:#ffffff;
+    font-size:50px;
+    text-transform:uppercase;
+    text-align: center;
+    padding:5px 0 5px 5px;
+    border-bottom:1px solid #161712;
+    border-top:1px solid #161712;
+}
