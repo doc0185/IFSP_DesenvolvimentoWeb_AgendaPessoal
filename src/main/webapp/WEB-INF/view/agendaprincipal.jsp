@@ -31,5 +31,6 @@
 
 	
 <a href="/agendaPessoal/cadastroTarefa">Cadastrar nova Tarefa!</a>
+<a href="/agendaPessoal/logout">Logout</a>
 </body>
 </html>

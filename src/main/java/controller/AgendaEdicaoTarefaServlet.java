@@ -40,27 +40,34 @@ public class AgendaEdicaoTarefaServlet extends HttpServlet {
 		String usuario_login = (String) request.getSession().getAttribute("usuario_login");
 		
 		if (usuario_login!=null) {	
-			int id_tarefa = Integer.parseInt(request.getParameter("id_tarefa"));
-			ServletContext servletContext = getServletContext();
-	        servletContext.setAttribute("id_tarefa", id_tarefa);
+			if (request.getParameter("id_tarefa") != null) {
+				int id_tarefa = Integer.parseInt(request.getParameter("id_tarefa"));
+				ServletContext servletContext = getServletContext();
+		        servletContext.setAttribute("id_tarefa", id_tarefa);
+		        
 	        
-        
-        	Tarefas tarefa = new Tarefas();
-    		try {
-    			tarefa = tarefaDAO.visualEdicaoTarefa(id_tarefa);
-    		} catch (ClassNotFoundException e) {
-    			// TODO Auto-generated catch block
-    			e.printStackTrace();
-    		}
-    		request.setAttribute("titulo", tarefa.getTitulo());
-    		request.setAttribute("descricao", tarefa.getDescricao());
-    		request.setAttribute("data_inicio", tarefa.getData_inicio());
-    		request.setAttribute("data_conclusao", tarefa.getData_conclusao());
-    		request.setAttribute("status", tarefa.getStatus());
-    		
-            servletContext.setAttribute("tarefa", tarefa);
-    		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaedicaotarefa.jsp");
-    		dispatcher.forward(request, response);	
+	        	Tarefas tarefa = new Tarefas();
+	    		try {
+	    			tarefa = tarefaDAO.visualEdicaoTarefa(id_tarefa);
+	    		} catch (ClassNotFoundException e) {
+	    			// TODO Auto-generated catch block
+	    			e.printStackTrace();
+	    		}
+	    		request.setAttribute("titulo", tarefa.getTitulo());
+	    		request.setAttribute("descricao", tarefa.getDescricao());
+	    		request.setAttribute("data_inicio", tarefa.getData_inicio());
+	    		request.setAttribute("data_conclusao", tarefa.getData_conclusao());
+	    		request.setAttribute("status", tarefa.getStatus());
+	    		
+	            servletContext.setAttribute("tarefa", tarefa);
+	    		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaedicaotarefa.jsp");
+	    		dispatcher.forward(request, response);	
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
+				dispatcher.forward(request, response);
+			}
+						
+			
         } else {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
 			dispatcher.forward(request, response);
