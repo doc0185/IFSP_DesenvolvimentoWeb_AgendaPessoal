@@ -37,6 +37,9 @@
 <input type="submit" value="Enviar"/>
 
 </form>
+<br>
+
+<a href="/agendaPessoal/login">Já cadastrado?</a>
 
 </body>
 </html>
