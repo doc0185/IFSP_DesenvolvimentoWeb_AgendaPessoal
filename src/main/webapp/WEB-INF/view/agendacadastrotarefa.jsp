@@ -28,13 +28,13 @@
 	
 	<label>
 			<span>Data Início</span>
- 			<input type="text" class="input_text" name="data_inicio" id="data_inicio" value="2023-05-25" min="2023-05-25" max="2023-12-31"/>
+ 			<input type="date" class="input_text" name="data_inicio" id="data_inicio" value="2023-05-25" min="2023-05-25" max="2023-12-31"/>
 	</label>
 	
 	
 	<label>
 			<span>Data Conclusão</span>
- 			<input type="text" class="input_text" name="data_conclusao" id="data_conclusao" value="2023-05-25" min="2023-05-25" max="2023-12-31"/>
+ 			<input type="date" class="input_text" name="data_conclusao" id="data_conclusao" value="2023-05-25" min="2023-05-25" max="2023-12-31"/>
 	</label>
 	
 	<label>

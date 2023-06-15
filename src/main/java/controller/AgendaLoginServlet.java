@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletContext;
+import model.MD5;
 import model.Tarefas;
 import model.Usuarios;
 import dao.TarefasDAO;
@@ -23,6 +24,7 @@ public class AgendaLoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	UsuariosDAO usuarioDAO = new UsuariosDAO();
 	TarefasDAO tarefaDAO = new TarefasDAO();
+	MD5 md5;
 
        
     /**
@@ -48,7 +50,8 @@ public class AgendaLoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
+		String senha = MD5.criptografar(request.getParameter("senha"));
+
 		
 		Usuarios usuario = new Usuarios();
 		usuario.setLogin(login);

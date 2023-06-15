@@ -10,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import dao.UsuariosDAO;
+import model.MD5;
 import model.Usuarios;
 
 /**
@@ -44,7 +45,7 @@ public class AgendaRegisterServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
+		String senha = MD5.criptografar(request.getParameter("senha"));
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		

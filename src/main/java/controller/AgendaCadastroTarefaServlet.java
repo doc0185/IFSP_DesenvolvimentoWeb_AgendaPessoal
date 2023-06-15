@@ -7,6 +7,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Usuarios;
+import model.MD5;
 import model.Tarefas;
 import dao.UsuariosDAO;
 import jakarta.servlet.RequestDispatcher;
@@ -61,7 +62,7 @@ public class AgendaCadastroTarefaServlet extends HttpServlet {
 			ServletContext servletContext = getServletContext();
 	        String login = (String) servletContext.getAttribute("login");
 	        String senha = (String) servletContext.getAttribute("senha");
-	        
+	       
 	        Usuarios usuario = new Usuarios();
 			usuario.setLogin(login);
 			usuario.setSenha(senha);
