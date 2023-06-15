@@ -49,20 +49,27 @@ public class AgendaRegisterServlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		
-		Usuarios usuario = new Usuarios();
-		usuario.setLogin(login);
-		usuario.setSenha(senha);
-		usuario.setNome(nome);
-		usuario.setEmail(email);
-		
-		try {
-			usuarioDAO.registerUsuario(usuario);
-		} catch(ClassNotFoundException e) {
-			e.printStackTrace();
+		if (login.length() == 0 || nome.length() == 0 || email.length() == 0) {
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaregister.jsp");
+			dispatcher.forward(request, response);
+		} else {
+			Usuarios usuario = new Usuarios();
+			usuario.setLogin(login);
+			usuario.setSenha(senha);
+			usuario.setNome(nome);
+			usuario.setEmail(email);
+			
+			try {
+				usuarioDAO.registerUsuario(usuario);
+			} catch(ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
+			dispatcher.forward(request, response);
 		}
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
-		dispatcher.forward(request, response);
+		
 		
 	}
 
