@@ -75,7 +75,32 @@ public class AgendaListagemTarefaServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		String usuario_login = (String) request.getSession().getAttribute("usuario_login");
 		
+		if (usuario_login != null) {
+			ServletContext servletContext = getServletContext();
+	        String login = (String) servletContext.getAttribute("login");
+	        String senha = (String) servletContext.getAttribute("senha");
+			String filtro = request.getParameter("tarefa_filtro");
+	        
+	        Usuarios usuario = new Usuarios();
+			usuario.setLogin(login);
+			usuario.setSenha(senha);
+			
+			try {
+				
+				usuarioDAO.loginUsuario(usuario);
+				ArrayList<Tarefas> tarefas = new ArrayList<>();
+				tarefas = tarefaDAO.listTarefaFiltro(usuario, filtro);
+				request.setAttribute("lista", tarefas);
+			
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
+				dispatcher.forward(request, response);
+			} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			}
+		}
 	}
 
 }

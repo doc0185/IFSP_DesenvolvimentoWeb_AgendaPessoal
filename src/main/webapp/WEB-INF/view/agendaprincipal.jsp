@@ -14,6 +14,19 @@
 <div class="box">
 <h1>Tarefas do Usuário</h1>
 
+<form action="<%=request.getContextPath() %>/listagemTarefa" method=post>
+		<label>
+ 			<span>Filtrar por Título da Tarefa</span>
+			<input type="text" class="input_text" name="tarefa_filtro" id="tarefa_filtro"/>
+		</label>
+		
+		<label>
+			<input type="submit" class="button" value="Enviar" />
+		</label>
+	</form>
+<br>
+<br>
+
 
 <table border="1" class = "table">
 <tr><th>Titulo</th><th>Descricao</th><th>Data_inicio</th><th>Data_fim</th><th>Status</th><th>Deletar</th><th>Editar</th></tr>
