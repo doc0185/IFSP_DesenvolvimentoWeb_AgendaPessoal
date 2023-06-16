@@ -15,6 +15,7 @@
 
 	<form action="<%=request.getContextPath() %>/edicaoTarefa" method=post>
 	<h1>Edição de Tarefas</h1>
+	<h2> Dados Obrigatórios: Título, Descrição, Data Início e Data de Conclusão</h2>
 	<label>
 			<span>Titulo</span>
  			<input type="text" class="input_text" name="titulo" id="titulo" value=<%= request.getAttribute("titulo") %>>

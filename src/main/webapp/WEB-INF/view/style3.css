@@ -25,6 +25,15 @@ div.box h1 {
     border-top:1px solid #161712;
 }
 
+div.box h2{
+	 color:#ffffff;
+    font-size:30spx;
+    text-transform:uppercase;
+    padding:5px 0 5px 5px;
+    border-bottom:1px solid #161712;
+    border-top:1px solid #161712;
+}
+
 div.box label {
     width:100%;
     display: block;

@@ -74,30 +74,38 @@ public class AgendaCadastroTarefaServlet extends HttpServlet {
 				String dataInicioString = request.getParameter("data_inicio");
 				String dataConclusaoString = request.getParameter("data_conclusao"); 
 				String status = request.getParameter("status");
-				Tarefas tarefa = new Tarefas();
-				tarefa.setTitulo(titulo);
-				tarefa.setDescricao(descricao);
-				tarefa.setStatus(status);
 				
-				DateFormat fmt = new java.text.SimpleDateFormat("yyyy-MM-dd");
-				java.sql.Date data_inicioSQL;
-				java.sql.Date data_conclusaoSQL;
-				try {
-					data_inicioSQL = new java.sql.Date(fmt.parse(dataInicioString).getTime());
-					data_conclusaoSQL = new java.sql.Date(fmt.parse(dataConclusaoString).getTime());
-					tarefa.setData_inicio(data_inicioSQL);
-					tarefa.setData_conclusao(data_conclusaoSQL);
+				if (titulo.length() != 0 || descricao.length() != 0) {
+					Tarefas tarefa = new Tarefas();
+					tarefa.setTitulo(titulo);
+					tarefa.setDescricao(descricao);
+					tarefa.setStatus(status);
 					
-				} catch(ParseException e) {
-					e.printStackTrace();
+					DateFormat fmt = new java.text.SimpleDateFormat("yyyy-MM-dd");
+					java.sql.Date data_inicioSQL;
+					java.sql.Date data_conclusaoSQL;
+					try {
+						data_inicioSQL = new java.sql.Date(fmt.parse(dataInicioString).getTime());
+						data_conclusaoSQL = new java.sql.Date(fmt.parse(dataConclusaoString).getTime());
+						tarefa.setData_inicio(data_inicioSQL);
+						tarefa.setData_conclusao(data_conclusaoSQL);
+						
+					} catch(ParseException e) {
+						e.printStackTrace();
+					}
+					tarefaDAO.registerTarefa(tarefa, usuario);
+					ArrayList<Tarefas> tarefas = new ArrayList<>();
+					tarefas = tarefaDAO.listTarefa(usuario);
+					request.setAttribute("lista", tarefas);
+					
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
+					dispatcher.forward(request, response);
+				} else {
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendacadastrotarefa.jsp");
+					dispatcher.forward(request, response);
 				}
-				tarefaDAO.registerTarefa(tarefa, usuario);
-				ArrayList<Tarefas> tarefas = new ArrayList<>();
-				tarefas = tarefaDAO.listTarefa(usuario);
-				request.setAttribute("lista", tarefas);
 				
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
-				dispatcher.forward(request, response);
+				
 				
 				
 			} catch (ClassNotFoundException e) {

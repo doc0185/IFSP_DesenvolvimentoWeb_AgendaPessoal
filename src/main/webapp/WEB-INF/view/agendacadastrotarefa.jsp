@@ -15,6 +15,7 @@
 
 	<form action="<%=request.getContextPath() %>/cadastroTarefa" method=post>
 	<h1>Cadastro de Tarefas</h1>
+	<h2> Dados Obrigatórios: Título, Descrição, Data Início e Data de Conclusão</h2>
 	
 	<label>
 			<span>Titulo</span>
