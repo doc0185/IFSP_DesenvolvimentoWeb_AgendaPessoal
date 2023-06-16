@@ -30,7 +30,7 @@
 
 
 <table border="1" class = "table">
-<tr><th>Titulo</th><th>Descricao</th><th>Data_inicio</th><th>Data_fim</th><th>Status</th><th>Deletar</th><th>Editar</th></tr>
+<tr><th>Título</th><th>Descrição</th><th>Data inicio</th><th>Data conclusão</th><th>Status</th><th>Deletar</th><th>Editar</th></tr>
 
 <c:forEach items="${requestScope.lista}" var="c">
 	<tr>
