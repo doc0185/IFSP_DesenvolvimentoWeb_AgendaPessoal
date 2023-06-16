@@ -23,7 +23,7 @@
 
 		<label>
  			<span>Email</span>
-			<input type="text" class="input_text" name="email" id="email" required="required"/>
+			<input type="email" class="input_text" name="email" id="email" required="required"/>
 		 </label>
 		 
 		 <label>
