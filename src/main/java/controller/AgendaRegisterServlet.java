@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -60,13 +59,23 @@ public class AgendaRegisterServlet extends HttpServlet {
 			usuario.setEmail(email);
 			
 			try {
-				usuarioDAO.registerUsuario(usuario);
+				
+				if (usuarioDAO.registerUsuario(usuario) == 0) {
+					
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendausuarioduplicado.jsp");
+					dispatcher.forward(request, response);
+				} else {
+					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
+					dispatcher.forward(request, response);
+				}
+				
+				
 			} catch(ClassNotFoundException e) {
 				e.printStackTrace();
+				
 			}
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
-			dispatcher.forward(request, response);
+			
 		}
 		
 		

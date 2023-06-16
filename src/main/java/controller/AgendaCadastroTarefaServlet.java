@@ -7,7 +7,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Usuarios;
-import model.MD5;
 import model.Tarefas;
 import dao.UsuariosDAO;
 import jakarta.servlet.RequestDispatcher;
