@@ -13,7 +13,7 @@
 
 <div class="box">
 <form action="<%=request.getContextPath() %>/register" method=post id="formulario">
-		<h1>Formulario de Regsitro de Usuario</h1>
+		<h1>Formulario de Registro de Usuario</h1>
 
 		<label>
 			<span>Nome</span>
@@ -41,7 +41,7 @@
 		</label>
 </form>
 
-	<a href="/agendaPessoal/login" >Já logado?!</a>
+	<a href="/agendaPessoal/login" >Já cadastrado?</a>
 	
 	</div>
 

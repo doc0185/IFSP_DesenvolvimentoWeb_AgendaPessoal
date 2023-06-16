@@ -71,7 +71,7 @@ public class AgendaLoginServlet extends HttpServlet {
 					RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaprincipal.jsp");
 					dispatcher.forward(request, response);
 			} else {
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendalogin.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendausuarionaoencontrado.jsp");
 				dispatcher.forward(request, response);
 			}
 		} catch(ClassNotFoundException e) {
