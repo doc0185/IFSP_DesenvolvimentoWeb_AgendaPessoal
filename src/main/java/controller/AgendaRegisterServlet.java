@@ -48,7 +48,7 @@ public class AgendaRegisterServlet extends HttpServlet {
 		String nome = request.getParameter("nome");
 		String email = request.getParameter("email");
 		
-		if (login.length() == 0 || nome.length() == 0 || email.length() == 0) {
+		if (login.length() == 0 || login.equals(" ") || senha.length() == 0 || senha.equals(" ") || email.length() == 0 || email.equals(" ")) {
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/view/agendaregister.jsp");
 			dispatcher.forward(request, response);
 		} else {

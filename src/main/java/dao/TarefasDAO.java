@@ -56,7 +56,7 @@ public class TarefasDAO {
 	
 	public ArrayList<Tarefas> listTarefa (Usuarios usuario) throws ClassNotFoundException{
 		String LIST_TAREFAS_SQL = "SELECT id, titulo, descricao, data_criacao, data_conclusao, stat from tarefas "
-				+ "WHERE user_id = ?;";
+				+ "WHERE user_id = ? ORDER BY data_criacao";
 		Class.forName("com.mysql.jdbc.Driver");
 		ArrayList<Tarefas> listTarefas = new ArrayList<>();
 		
@@ -182,7 +182,7 @@ public class TarefasDAO {
 		ArrayList<Tarefas> listTarefas = new ArrayList<>();
 		
 		String LIST_TAREFAS_SQL = "SELECT id, titulo, descricao, data_criacao, data_conclusao, stat from tarefas "
-				+ "WHERE user_id = ? AND lower(titulo) LIKE lower(concat(?, '%'));";
+				+ "WHERE user_id = ? AND lower(titulo) LIKE lower(concat(?, '%')) ORDER BY data_criacao;";
 		Class.forName("com.mysql.jdbc.Driver");
 		
 		try (Connection connection = DriverManager.
