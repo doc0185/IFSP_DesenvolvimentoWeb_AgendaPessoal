@@ -100,7 +100,7 @@ public class AgendaEdicaoTarefaServlet extends HttpServlet {
      		String dataConclusaoString = request.getParameter("data_conclusao"); 
      		String status = request.getParameter("status");
      		
-     		if (titulo.length() != 0 || descricao.length() != 0) {
+			if (titulo.length() != 0 || descricao.length() != 0 || titulo.equals(" ") || descricao.equals(" ")) {
      			Tarefas tarefa = new Tarefas();
          		tarefa.setId(id);
          		tarefa.setTitulo(titulo);

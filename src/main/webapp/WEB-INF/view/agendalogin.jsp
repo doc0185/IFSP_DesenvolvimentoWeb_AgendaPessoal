@@ -17,12 +17,12 @@
 
 		<label>
  			<span>Login</span>
-			<input type="text" class="input_text" name="login" id="login"/>
+			<input type="text" class="input_text" name="login" id="login" required="required"/>
 		</label>
 
 		<label>
  			<span>Senha</span>
-			<input type="password" class="input_text" name="senha" id="senha"/>
+			<input type="password" class="input_text" name="senha" id="senha" required="required"/>
 		</label>
 
 		<label>

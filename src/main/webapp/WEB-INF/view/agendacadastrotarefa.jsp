@@ -19,23 +19,23 @@
 	
 	<label>
 			<span>Titulo</span>
- 			<input type="text" class="input_text" name="titulo" id="titulo"/>
+ 			<input type="text" class="input_text" name="titulo" id="titulo" required="required"/>
 	</label>
 	
 	<label>
 			<span>Descricao</span>
- 			<input type="text" class="input_text" name="descricao" id="descricao"/>
+ 			<input type="text" class="input_text" name="descricao" id="descricao" required="required"/>
 	</label>
 	
 	<label>
 			<span>Data Início</span>
- 			<input type="date" class="input_text" name="data_inicio" id="data_inicio" value="2023-05-25" min="2023-05-25" max="2023-12-31"/>
+ 			<input type="date" class="input_text" name="data_inicio" id="data_inicio" value="2023-05-25" min="2023-05-25" max="2023-12-31" required="required"/>
 	</label>
 	
 	
 	<label>
 			<span>Data Conclusão</span>
- 			<input type="date" class="input_text" name="data_conclusao" id="data_conclusao" value="2023-05-25" min="2023-05-25" max="2023-12-31"/>
+ 			<input type="date" class="input_text" name="data_conclusao" id="data_conclusao" value="2023-05-25" min="2023-05-25" max="2023-12-31" required="required"/>
 	</label>
 	
 	<label>
